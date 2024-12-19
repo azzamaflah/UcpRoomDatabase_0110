@@ -4,16 +4,14 @@ import com.example.ucp2.data.dao.DosenDao
 import com.example.ucp2.data.entity.Dosen
 import kotlinx.coroutines.flow.Flow
 
-class LocalRepositoryDosen (
-
+class LocalRepositoryDosen(
     private val dosenDao: DosenDao
 )   : RepositoryDosen {
 
     override suspend fun  insertDosen(dosen : Dosen) {
-        dosenDao.inserDosen(dosen)
+        dosenDao.insertDosen(dosen)
     }
-
-    override suspend fun getAllDosen(): Flow<List<Dosen>> {
+    override fun getAllDosen(): Flow<List<Dosen>> {
         return dosenDao.getAllDosen()
     }
 }
