@@ -14,14 +14,10 @@ interface DosenDao {
     fun getAllDosen() : Flow<List<Dosen>>
 
     @Insert
-    suspend fun inserDosen(dosen: Dosen)
+    suspend fun insertDosen(dosen: Dosen)
 
     @Query("SELECT * FROM dosen where nidn = :nidn")
     fun getDosen(nidn: String): Flow<Dosen>
 
-    @Delete
-    suspend fun deleteDosen(dosen: Dosen)
 
-    @Update
-    suspend fun updateDosen(dosen: Dosen)
 }
