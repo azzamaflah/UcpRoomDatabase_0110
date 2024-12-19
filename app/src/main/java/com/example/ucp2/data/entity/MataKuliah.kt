@@ -13,3 +13,4 @@ class MataKuliah (
     val jenis: String,
     val dosenpengampu: String,
 )
+
