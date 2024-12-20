@@ -1,7 +1,5 @@
 package com.example.ucp2.ui.viewmodel
 
-
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ucp2.data.entity.MataKuliah
@@ -15,12 +13,13 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import com.example.ucp2.ui.viewmodel.HomeUiState
 
 class HomeMataKuliahViewModel(
     private val repositoryMataKuliah: RepositoryMatakuliah
 ) : ViewModel() {
 
-    val homeUiState: StateFlow<HomeUiState> = repositoryMataKuliah.getAllMatakuliah()
+    val HomeUiState: StateFlow<HomeUiState> = repositoryMataKuliah.getAllMatakuliah()
         .filterNotNull()
         .map {
             HomeUiState(
@@ -30,7 +29,7 @@ class HomeMataKuliahViewModel(
         }
         .onStart {
             emit(HomeUiState(isLoading = true))
-            delay(900) // Delay optional, sesuai kebutuhan UI
+            delay(900) // Delay optional,
         }
         .catch { exception ->
             emit(
