@@ -6,11 +6,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ucp2.data.entity.Dosen
 import com.example.ucp2.repository.RepositoryDosen
+
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class DosenViewModel(private val repositoryDosen: RepositoryDosen) : ViewModel() {
 
     var uiState by mutableStateOf(DosenUiState())
+
+    val dosenList: StateFlow<List<Dosen>> = repositoryDosen.getAllDosen()
+        .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     // Untuk update state sesuai dengan input event
     fun updateState(dosenEvent: DosenEvent) {

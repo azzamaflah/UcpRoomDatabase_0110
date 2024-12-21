@@ -9,6 +9,8 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -31,7 +33,12 @@ fun UpdateMatakuliahView(
 ) {
     val uiState = viewModel.updateUIState // Ambil UI state dari ViewModel
     val snackbarHostState = remember { SnackbarHostState() } // Snackbar state
+    val dosenList by viewModel.dosenListState.collectAsState()
     val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit){
+        viewModel.fetchDosenList()
+    }
 
     // Observasi perubahan snackbarMessage
     LaunchedEffect(uiState.snackBarMessage) {
@@ -69,6 +76,7 @@ fun UpdateMatakuliahView(
                 onValueChange = { updatedEvent ->
                     viewModel.updateState(updatedEvent) // Update state di ViewModel
                 },
+                dosenList = dosenList,
                 onClick = {
                     coroutineScope.launch {
                         if (viewModel.validateFields()) {

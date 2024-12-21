@@ -6,17 +6,45 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ucp2.data.entity.Dosen
 import com.example.ucp2.data.entity.MataKuliah
+import com.example.ucp2.repository.RepositoryDosen
 import com.example.ucp2.repository.RepositoryMatakuliah
 import com.example.ucp2.ui.navigation.AlamatNavigasi
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class UpdateMataKuliahViewModel(
     savedStateHandle: SavedStateHandle,
-    private val repositoryMataKuliah: RepositoryMatakuliah
+    private val repositoryMataKuliah: RepositoryMatakuliah,
+    private val repositoryDosen: RepositoryDosen
 ) : ViewModel() {
+
+    val dosenListState: StateFlow<List<Dosen>> = repositoryDosen.getAllDosen()
+        .stateIn(
+            scope = viewModelScope,
+            started = kotlinx.coroutines.flow.SharingStarted.WhileSubscribed(5_000),
+            initialValue = emptyList()
+        )
+
+    var dosenListInsert by mutableStateOf<List<String>>(emptyList())
+        private set
+
+    fun fetchDosenList() {
+        viewModelScope.launch {
+            try {
+                repositoryDosen.getAllDosen()
+                    .collect{ dosenList->
+                        dosenListInsert = dosenList.map { it.nama }
+                    }
+            } catch (e: Exception) {
+                dosenListInsert = emptyList()
+            }
+        }
+    }
 
     var updateUIState by mutableStateOf(MataKuliahUiState())
         private set

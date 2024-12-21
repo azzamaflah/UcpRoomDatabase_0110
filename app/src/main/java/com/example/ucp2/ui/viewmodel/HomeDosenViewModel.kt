@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import com.example.ucp2.ui.viewmodel.HomeUiState
 
 class HomeDosenViewModel(
     private val repositoryDosen: RepositoryDosen
