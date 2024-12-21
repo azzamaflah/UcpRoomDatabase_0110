@@ -4,6 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -79,7 +82,7 @@ fun MenuView(
             CardMenuItem(
                 title = "Mata Kuliah",
                 description = "Kelola data mata kuliah dengan mudah.",
-                icon = Icons.Default.Person,
+                icon = Icons.Default.Menu,
                 backgroundColor = Color(0xFF03A9F4), // Blue
                 onClick = onNavigateToMatakuliah
             )
