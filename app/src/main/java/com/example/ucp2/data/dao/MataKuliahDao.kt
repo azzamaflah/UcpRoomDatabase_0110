@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MataKuliahDao {
-    @Query("select * from matakuliah ORDDER BY nama ASC")
+    @Query("select * from matakuliah ORDER BY nama ASC")
     fun getAllMataKuliah() : Flow<List<MataKuliah>>
 
     @Insert
