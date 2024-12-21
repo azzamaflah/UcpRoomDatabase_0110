@@ -26,7 +26,8 @@ object PenyediaViewModel {
         // Initializer untuk MataKuliahViewModel
         initializer {
             MataKuliahViewModel(
-                runApp().containerApp.repositoryMatakuliah
+                runApp().containerApp.repositoryMatakuliah,
+                runApp().containerApp.repositoryDosen
             )
         }
 
@@ -49,7 +50,8 @@ object PenyediaViewModel {
         initializer {
             UpdateMataKuliahViewModel(
                 createSavedStateHandle(),
-                runApp().containerApp.repositoryMatakuliah
+                runApp().containerApp.repositoryMatakuliah,
+                runApp().containerApp.repositoryDosen
             )
         }
     }

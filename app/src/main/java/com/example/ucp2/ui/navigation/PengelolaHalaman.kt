@@ -14,15 +14,27 @@ import com.example.ucp2.ui.matakuliah.view.InsertMataKuliahView
 import com.example.ucp2.ui.matakuliah.view.UpdateMatakuliahView
 import com.example.ucp2.ui.view.dosen.HomeDosenView
 import com.example.ucp2.ui.view.dosen.InsertDosenView
-import com.example.ucp2.ui.viewmodel.DetailDosenViewModel
-
+import com.example.ucp2.ui.view.menu.MenuView
 
 @Composable
 fun PengelolaHalaman(
     navController: NavHostController = rememberNavController(),
     modifier: Modifier = Modifier
 ) {
-    NavHost(navController = navController, startDestination = AlamatNavigasi.DestinasiHomeDosen.route) {
+    NavHost(navController = navController, startDestination = AlamatNavigasi.DestinasiMenu.route) {
+
+        // Menu Utama
+        composable(route = AlamatNavigasi.DestinasiMenu.route) {
+            MenuView(
+                onNavigateToDosen = {
+                    navController.navigate(AlamatNavigasi.DestinasiHomeDosen.route)
+                },
+                onNavigateToMatakuliah = {
+                    navController.navigate(AlamatNavigasi.DestinasiHomeMatakuliah.route)
+                },
+                modifier = modifier
+            )
+        }
 
         // Home Dosen
         composable(route = AlamatNavigasi.DestinasiHomeDosen.route) {
@@ -55,6 +67,9 @@ fun PengelolaHalaman(
             HomeMatakuliahView(
                 onDetailClick = { kode ->
                     navController.navigate("${AlamatNavigasi.DestinasiDetailMataKuliah.route}/$kode")
+                    println(
+                        "pengelola halaman : kode = $kode"
+                    )
                 },
                 onAddMataKuliah = {
                     navController.navigate(AlamatNavigasi.DestinasiInsertMatakuliah.route)
@@ -78,7 +93,7 @@ fun PengelolaHalaman(
 
         // Detail Mata Kuliah
         composable(
-            AlamatNavigasi.DestinasiDetailMataKuliah.routesWithArg,
+            route = AlamatNavigasi.DestinasiDetailMataKuliah.routesWithArg,
             arguments = listOf(navArgument(AlamatNavigasi.DestinasiDetailMataKuliah.KODE) { type = NavType.StringType })
         ) {
             val kode = it.arguments?.getString(AlamatNavigasi.DestinasiDetailMataKuliah.KODE)
@@ -97,7 +112,7 @@ fun PengelolaHalaman(
 
         // Update Mata Kuliah
         composable(
-            AlamatNavigasi.DestinasiUpdateMatakuliah.routesWithArg,
+            route = AlamatNavigasi.DestinasiUpdateMatakuliah.routesWithArg,
             arguments = listOf(navArgument(AlamatNavigasi.DestinasiUpdateMatakuliah.KODE) { type = NavType.StringType })
         ) {
             UpdateMatakuliahView(
