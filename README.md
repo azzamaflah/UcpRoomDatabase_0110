@@ -1,8 +1,5 @@
-![image](https://github.com/user-attachments/assets/328002c7-c1f5-40ea-836c-fbc39e51da0b)
-
-
 <h1>TAMPILAN HOME</h1>
-![image](https://github.com/user-attachments/assets/970b5f1f-e07a-4543-9dba-92025ca0793a)
+![image](https://github.com/user-attachments/assets/2a7a3dd4-e3fc-4efc-a355-167f62002d06)
 
 <h1>TAMPILAN INSERT DOSEN VALIDASI</h1>
 ![Screenshot 2024-12-22 134158](https://github.com/user-attachments/assets/a737180a-6f10-4b10-8008-eb403fa9bef5)
