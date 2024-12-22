@@ -1,5 +1,5 @@
 <h1>TAMPILAN HOME</h1>
-(https://github.com/user-attachments/assets/970b5f1f-e07a-4543-9dba-92025ca0793a)
+![image](https://github.com/user-attachments/assets/970b5f1f-e07a-4543-9dba-92025ca0793a)
 
 <h1>TAMPILAN INSERT DOSEN VALIDASI</h1>
 ![Screenshot 2024-12-22 134158](https://github.com/user-attachments/assets/a737180a-6f10-4b10-8008-eb403fa9bef5)
