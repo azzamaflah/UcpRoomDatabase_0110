@@ -1,10 +1,10 @@
 -<h1>TAMPILAN HOME</h1>
 ![image](https://github.com/user-attachments/assets/2a7a3dd4-e3fc-4efc-a355-167f62002d06)
 
-<h1>TAMPILAN INSERT DOSEN VALIDASI</h1>
-![Screenshot 2024-12-22 134158](https://github.com/user-attachments/assets/a737180a-6f10-4b10-8008-eb403fa9bef5)
+-<h1>TAMPILAN INSERT DOSEN VALIDASI</h1>
+![image](https://github.com/user-attachments/assets/1e2a21b7-e751-4378-8243-a00b9d6b9fe8)
 
-<h1>TAMMPILAN INSERT DOSEN</h1>
+-<h1>TAMMPILAN INSERT DOSEN</h1>
 ![Screenshot 2024-12-22 133626](https://github.com/user-attachments/assets/8d95afe0-d6a4-4cb6-a70d-0f8b67353135)
 
 <h1>TAMPILAN DAFTAR DOSEN</h1>
